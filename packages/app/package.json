@@ -24,6 +24,7 @@
     "@backstage/plugin-register-component": "^0.1.1-alpha.26",
     "@backstage/plugin-rollbar": "^0.1.1-alpha.26",
     "@backstage/plugin-scaffolder": "^0.1.1-alpha.26",
+    "@backstage/plugin-search": "^0.1.1-alpha.25",
     "@backstage/plugin-sentry": "^0.1.1-alpha.26",
     "@backstage/plugin-tech-radar": "^0.1.1-alpha.26",
     "@backstage/plugin-techdocs": "^0.1.1-alpha.26",
