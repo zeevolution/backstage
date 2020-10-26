@@ -18,7 +18,8 @@ import { Location, LocationSpec } from '@backstage/catalog-model';
 import { v4 as uuidv4 } from 'uuid';
 import { Logger } from 'winston';
 import { EntitiesCatalog, LocationsCatalog } from '../catalog';
-import { durationText } from '../util/timing';
+import { EntityFilters } from '../service/EntityFilters';
+import { durationText } from '../util';
 import {
   AddLocationResult,
   HigherOrderOperation,
@@ -100,9 +101,11 @@ export class HigherOrderOperations implements HigherOrderOperation {
       location.id,
     );
 
-    const entities = await this.entitiesCatalog.entities([
-      { 'metadata.uid': writtenEntities.map(e => e.entityId) },
-    ]);
+    const entities = await this.entitiesCatalog.entities(
+      EntityFilters.ofMatchers({
+        'metadata.uid': writtenEntities.map(e => e.entityId),
+      }),
+    );
 
     return { location, entities };
   }
